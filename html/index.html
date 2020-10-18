@@ -16,7 +16,7 @@
 		<script src="../js/script.js"></script>
     </head>
     
-    <body>
+    <body onload="getCities()">
         <header id="top">
             <h1>Thomas Walker</h1>
         </header>
@@ -25,7 +25,17 @@
                 <div class="col-sm-12">
                     <p>Get a list of students:</p>
             
-                    <input type="button" id="getStudentsButton" value="get students"/>
+                    <select name="city" id="city_selection">
+                    </select>
+            
+                    <select name="license_type">
+                        <option value="cemetery">Cemetery</option>
+                        <option value="crematorium">Crematorium</option>
+                        <option value="crematorium_cemetery">Crematorium & Cemetery</option>
+                        <option value="funeral_home">Funeral Home</option>
+                        <option value="funeral_home_crematorium">Funeral Home & Crematorium</option>
+                    </select>
+		            <input type="button" id="getDataButton" value="get data"/>  
                 </div>
             </div>
         </div>
