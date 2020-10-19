@@ -17,7 +17,7 @@
 		<script src="../js/script.js"></script>
     </head>
     
-    <body onload="getCities()">
+    <body onload="getAllData()">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-2 search"> 
@@ -31,6 +31,7 @@
                     <br  />
                     <p>Select License Type:</p>
                     <select name="license_type" id="license_selection">
+                        <option value="Any">Any</option>
                         <option value="Cemetery">Cemetery</option>
                         <option value="Crematorium">Crematorium</option>
                         <option value="Crematorium & Cemetery">Crematorium & Cemetery</option>
@@ -41,45 +42,27 @@
                     <br  />
 		            <input type="button" id="getDataButton" value="get data"/>
                 </div>
-                <div class="col-sm offset-sm-3 results text-center">
-                    <h2 class="text-left">Results:</h2>
-                    <a href="">
+                <div class="col-sm-5 offset-sm-3 results text-center" id="results">
+                    <h3>Search for funeral related establishments using parameters on the left hand search bar.</h3>
+                    <a href="#">
                         <div class="row result">
                             <div class="col-sm-4">
                                 <p>Name</p>
                             </div>
                             <div class="col-sm-4">
-                                <p>type</p>
+                                <p>Type</p>
                             </div>
                             <div class="col-sm-4">
-                                <p>location</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="row result">
-                            <div class="col-sm-4">
-                                <p>Name</p>
-                            </div>
-                            <div class="col-sm-4">
-                                <p>type</p>
-                            </div>
-                            <div class="col-sm-4">
-                                <p>location</p>
+                                <p>Location</p>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-sm-4"> 
+                <div class="col-sm-2 offset-sm-8 map-embed"> 
                     <h3>TJ TRACEY CREMATION AND BURIAL SPECIALISTS</h3>
                     <p>Address: 71 MCQUADE LAKE CRESENT</p>
-                    <iframe
-  width="600"
-  height="450"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCM1Aixhmhyha1Knp3yg5wQ9fhBbcDHhIE
-    &q=Space+Needle,Seattle+WA" allowfullscreen>
-</iframe>
+                    <iframe width=600 height=400 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCM1Aixhmhyha1Knp3yg5wQ9fhBbcDHhIE&q=Space+Needle,Seattle+WA" allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>

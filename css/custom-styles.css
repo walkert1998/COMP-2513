@@ -1,3 +1,6 @@
+select {
+    width: 50%;
+}
 .search {
     background-color: #35a6d3;
 }
@@ -15,10 +18,19 @@
     text-decoration: none;
 }
 
+.map-embed {
+    width: "600px";
+    height: "450px";
+    border: "0";
+}
+
 @media (min-width: 768px) {
     .search {
         position: fixed;
         top: 0;
         bottom: 0;
+    }
+    .map-embed {
+        position: fixed;
     }
 }
