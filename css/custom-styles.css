@@ -1,5 +1,5 @@
 select {
-    width: 50%;
+    width: 100%;
 }
 .search {
     background-color: #35a6d3;
@@ -32,5 +32,18 @@ select {
     }
     .map-embed {
         position: fixed;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .search {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+    }
+    .map-embed {
+        position: fixed;
+        width: 100%;
     }
 }

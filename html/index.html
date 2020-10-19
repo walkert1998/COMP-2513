@@ -20,9 +20,9 @@
     <body onload="getAllData()">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-2 search"> 
+                <div class="col-sm-12 col-md-2 search"> 
                     <header id="top">
-                        <h1>Thomas Walker</h1>
+                        <h1>Bury.Me</h1>
                     </header>
                     <p>Select Location:</p>
                     <select name="city" id="city_selection">
@@ -40,11 +40,12 @@
                     </select>
                     <br  />
                     <br  />
-		            <input type="button" id="getDataButton" value="get data"/>
+		            <input type="button" id="getDataButton" value="Search" style="width: 100%;"/>
                 </div>
-                <div class="col-sm-5 offset-sm-3 results text-center" id="results">
-                    <h3>Search for funeral related establishments using parameters on the left hand search bar.</h3>
-                    <a href="#">
+                <div class="col-sm-12 col-md-5 offset-md-3 results text-center" id="results">
+                    <h1>Welcome to Bury.Me</h1>
+                    <p class="text-left">Search for licensed Funeral Homes, Crematoriums, Cemeteries, and Funeral Sellers in Nova Scotia using parameters on the left hand search bar.</p>
+                    <!-- <a href="#">
                         <div class="row result">
                             <div class="col-sm-4">
                                 <p>Name</p>
@@ -56,12 +57,13 @@
                                 <p>Location</p>
                             </div>
                         </div>
-                    </a>
+                    </a> -->
                 </div>
-                <div class="col-sm-2 offset-sm-8 map-embed"> 
+                <div class="col-sm-12 col-md-3 offset-md-8 map-embed" id="establishment-display"> 
                     <h3 id="establishment-name">TJ TRACEY CREMATION AND BURIAL SPECIALISTS</h3>
                     <p id="establishment-address">Address: 71 MCQUADE LAKE CRESENT</p>
-                    <iframe width=600 height=400 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCM1Aixhmhyha1Knp3yg5wQ9fhBbcDHhIE&q=Space+Needle,Seattle+WA" allowfullscreen>
+                    <p id="establishment-sales">Sells Pre-arranged Funeral Plans:</p>
+                    <iframe id="google-map" width=600 height=400 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCM1Aixhmhyha1Knp3yg5wQ9fhBbcDHhIE&q=0,0" allowfullscreen>
                     </iframe>
                 </div>
             </div>
