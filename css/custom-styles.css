@@ -18,10 +18,8 @@ select {
     text-decoration: none;
 }
 
-.map-embed {
-    width: "600px";
-    height: "450px";
-    border: "0";
+.search-button {
+    width: 100%;
 }
 
 @media (min-width: 768px) {

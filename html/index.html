@@ -18,7 +18,7 @@
     </head>
     
     <body onload="getAllData()">
-        <div class="container-fluid">
+        <div class="container-fluid" id="content">
             <div class="row">
                 <div class="col-sm-12 col-md-2 search"> 
                     <header id="top">
@@ -40,7 +40,9 @@
                     </select>
                     <br  />
                     <br  />
-		            <input type="button" id="getDataButton" value="Search" style="width: 100%;"/>
+                    <input type="button" id="getDataButton" value="Search" class="search-button"/>
+                    <br  />
+                    <br  />
                 </div>
                 <div class="col-sm-12 col-md-5 offset-md-3 results text-center" id="results">
                     <h1>Welcome to Bury.Me</h1>
@@ -63,7 +65,7 @@
                     <h3 id="establishment-name">TJ TRACEY CREMATION AND BURIAL SPECIALISTS</h3>
                     <p id="establishment-address">Address: 71 MCQUADE LAKE CRESENT</p>
                     <p id="establishment-sales">Sells Pre-arranged Funeral Plans:</p>
-                    <iframe id="google-map" width=600 height=400 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCM1Aixhmhyha1Knp3yg5wQ9fhBbcDHhIE&q=0,0" allowfullscreen>
+                    <iframe id="google-map" width=100% height=400 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCM1Aixhmhyha1Knp3yg5wQ9fhBbcDHhIE&q=0,0" allowfullscreen>
                     </iframe>
                 </div>
             </div>

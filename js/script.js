@@ -14,11 +14,24 @@ $(document).ready(function() {
 function getAllData() {
 	console.log("fetching data...");
 	var url = 'https://data.novascotia.ca/resource/if4h-78fy.json';
-    $.getJSON(url, function (data) {
-		retrievedData = data;
-		getCities(retrievedData);
-		$("#getDataButton").attr('onclick', 'getData(retrievedData)');
+	$.ajax({
+		url: url,
+		method: 'get',
+		dataType: "json",
+		success: function(json){
+			// var weatherString = parseJsonResponse(json);
+			// $("#pleaseWait").toggle();
+			$.getJSON(url, function (data) {
+				retrievedData = data;
+				getCities(retrievedData);
+				$("#getDataButton").attr('onclick', 'getData(retrievedData)');
+			});
+		},
+		error: function() {
+			alert("Data could not be retrieved, an error occurred while processing JSON.");
+		}
 	});
+    
 }
 
 function getCities(data) {
@@ -30,7 +43,6 @@ function getCities(data) {
 	var url = 'https://data.novascotia.ca/resource/if4h-78fy.json';
 	var cities = new Array;
 	$.each(data, function (key, entry) {
-		console.log(retrievedData[0]);
 		if (jQuery.inArray(entry.city, cities) === -1) {
 			cities.push(entry.city);
 		}
@@ -47,9 +59,6 @@ function getCities(data) {
 }
 
 function getData(data) {
-	$('#establishment-display').show();
-	console.log("fetching data...");
-	var url = 'https://data.novascotia.ca/resource/if4h-78fy.json';
 	var city_selection = $('#city_selection').val();
 	var license_selection = $('#license_selection').val();
 	var resultPrefab;
@@ -93,6 +102,7 @@ function getData(data) {
 }
 
 function displayEstablishment (establishment) {
+	$('#establishment-display').show();
 	$('#establishment-name').html(establishment.licensee_name);
 	$('#establishment-address').html("Address: " + establishment.address);
 	$('#establishment-sales').html("Pre-arranged Funeral Plan Sales: " + establishment.pre_arranged_funeral_plan_sales);
