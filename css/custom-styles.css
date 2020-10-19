@@ -1,0 +1,24 @@
+.search {
+    background-color: #35a6d3;
+}
+.results {
+    display: table;
+    vertical-align: middle;
+}
+.result {
+    background-color: #777777;
+    color: #ffffff;
+    width: 100%;
+}
+.result:hover {
+    background-color: #969696;
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    .search {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+    }
+}
