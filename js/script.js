@@ -9,6 +9,7 @@ var results;
 
 $(document).ready(function() {
 	$('#establishment-display').hide();
+	$('#results').hide();
 	getAllData();
 });
 
@@ -20,8 +21,8 @@ function getAllData() {
 		method: 'get',
 		dataType: "json",
 		success: function(json){
-			// var weatherString = parseJsonResponse(json);
-			// $("#pleaseWait").toggle();
+			$('#spinner').hide();
+			$('#results').show();
 			$.getJSON(url, function (data) {
 				retrievedData = data;
 				getCities(retrievedData);

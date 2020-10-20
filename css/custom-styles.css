@@ -6,7 +6,7 @@ select {
     background-color: #cfcfcf;
 }
 .results {
-    display: table;
+    display: none;
     vertical-align: middle;
 }
 .result {
