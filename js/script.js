@@ -37,17 +37,12 @@ function getAllData() {
 function getCities(data) {
 	let dropdown = $('#city_selection');
 	dropdown.empty();
-	// dropdown.append('<option selected="true" disabled>Choose State/Province</option>');
-	// dropdown.prop('selectedIndex', 0);
 	console.log("fetching data...");
 	var url = 'https://data.novascotia.ca/resource/if4h-78fy.json';
 	var cities = new Array;
 	$.each(data, function (key, entry) {
 		if (jQuery.inArray(entry.city, cities) === -1) {
 			cities.push(entry.city);
-		}
-		else {
-			console.log("City " + entry.city + " already loaded");
 		}
 	})
 	cities.sort();
@@ -68,27 +63,22 @@ function getData(data) {
 	for(var i = 0; i < data.length; i++) {
 		if (city_selection !== "Any" && license_selection !== "Any") {
 			if (data[i].city.indexOf(city_selection) === 0 && data[i].license_type.indexOf(license_selection) === 0) {
-				console.log(data[i]);
 				results.push(data[i]);
 			}
 		} else if (city_selection != "Any") {
 			console.log(city_selection + ' ' + license_selection);
 			if (data[i].city.indexOf(city_selection) === 0) {
-				console.log(data[i]);
 				results.push(data[i]);
 			}
 		} else if (license_selection != "Any") {
 			if (data[i].license_type.indexOf(license_selection) === 0 || data[i].license_type.includes(license_selection)) {
-				console.log(data[i]);
 				results.push(data[i]);
 			}
 		} else {
-			console.log(data[i]);
 			results.push(data[i]);
 		}
 	}
 	if (results.length < 1) {
-		console.log("No results");
 		result_section.append($('<h2></h2>').html('No Results Found...'));
 		result_section.append($('<p></p>').html('Please try other search parameters'));
 	} else {
