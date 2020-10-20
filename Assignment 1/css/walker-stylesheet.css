@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #000000;
+}
+p {
+    color: #ffffff;
+}
+h1 {
+    color: #ffffff;
+}
+h2 {
+    color: #ffffff;
+}
+h3 {
+    color: #ffffff;
+}
+li {
+    color:#ffffff;
+}
+header {
+    text-align: center;
+    font-size: large;
+    color: #ffffff;
+}
+table, th, td {
+    border: 1px solid #7e7e7ef5;
+}
+th {
+    color:#ffffff;
+}
+td {
+    color: #ffffff;
+}
+footer {
+    text-align: center;
+    color: #ffffff;
+    width: 100%;
+}
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li.navitem {
+    display: inline;
+}
+a.navitem {
+    padding: 8px;
+    color: #ffffff;
+    text-decoration: none;
+}
+a.navitem:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+a.navitem:active {
+    background-color: #ffffff;
+    color: #000000;
+}
+.current-page {
+    border-bottom: 2px solid #ffffff;
+}
+.hell {
+    color: #ff0000;
+}
+.navbox {
+    border: 1px solid #7e7e7ef5;
+}
+.centered {
+    margin: auto;
+}
+.section {
+    text-align: center;
+}
+.selfie {
+    width: 90%;
+}
+@media (max-width: 600px) {
+    nav, article {
+        width: 100%;
+        height: auto;
+    }
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.screenshot {
+    width: 45%;
+}
+.cover-photo {
+    width: 100%;
+}
+@media only screen and (min-width: 768px) {
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+}
+[class*="col-"] {
+    float: left;
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
