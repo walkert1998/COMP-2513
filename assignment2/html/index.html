@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bury.Me</title>
+        <meta charset="UTF-8"/>
+        <meta name="description" content="Thomas Walker's personal website"/>
+        <meta name="keywords" content="Bugs,vacuous,mandatory"/>
+        <meta name="author" content="Thomas Walker"/>
+        <meta name="robots" content="index,follow"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../css/custom-styles.css"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+		
+		<script src="../js/script.js"></script>
+    </head>
+    
+    <body>
+        <div class="container-fluid" id="content">
+            <div class="row">
+                <div class="col-sm-12 col-md-2 search"> 
+                    <header id="top">
+                        <h1>Bury.Me</h1>
+                    </header>
+                    <p>&copy; Thomas Walker 2020</p>
+                    <p>Data retrieved from <a href="https://data.novascotia.ca/Permits-and-Licensing/Licensed-Funeral-Homes-Crematoriums-Cemeteries-and/if4h-78fy">OpenData Nova Scotia</a></p>
+                    <p>Select Location:</p>
+                    <select name="city" id="city_selection">
+                    </select>
+                    <br  />
+                    <br  />
+                    <p>Select License Type:</p>
+                    <select name="license_type" id="license_selection">
+                        <option value="Any">Any</option>
+                        <option value="Cemetery">Cemetery</option>
+                        <option value="Crematorium">Crematorium</option>
+                        <option value="Crematorium & Cemetery">Crematorium & Cemetery</option>
+                        <option value="Funeral Home">Funeral Home</option>
+                        <option value="Funeral Home & Crematorium">Funeral Home & Crematorium</option>
+                    </select>
+                    <br  />
+                    <br  />
+                    <input type="button" id="getDataButton" value="Search" class="search-button"/>
+                    <br  />
+                    <br  />
+                </div>
+                <div class="col-sm-12 col-md-5 offset-md-3" id="spinner">
+                    <img id="pleaseWait" alt="Please Wait" src="../media/processing.gif"/>
+                </div>
+                <div class="col-sm-12 col-md-5 offset-md-3 results text-center" id="results">
+                    <h1>Welcome to Bury.Me</h1>
+                    <p class="text-left">Search for licensed Funeral Homes, Crematoriums, Cemeteries, and Funeral Sellers in Nova Scotia using parameters on the left hand search bar.</p>
+                </div>
+                <div class="col-sm-12 col-md-4 offset-md-8 map-embed" id="establishment-display"> 
+                    <h3 id="establishment-name">TJ TRACEY CREMATION AND BURIAL SPECIALISTS</h3>
+                    <p id="establishment-address">Address: 71 MCQUADE LAKE CRESENT</p>
+                    <p id="establishment-sales">Sells Pre-arranged Funeral Plans:</p>
+                    <iframe id="google-map" width=100% height=400 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCM1Aixhmhyha1Knp3yg5wQ9fhBbcDHhIE&q=0,0" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

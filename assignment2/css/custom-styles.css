@@ -1,0 +1,35 @@
+select {
+    width: 100%;
+}
+
+.search {
+    background-color: #cfcfcf;
+}
+.results {
+    display: none;
+    vertical-align: middle;
+}
+.result {
+    background-color: #777777;
+    color: #ffffff;
+}
+.result:hover {
+    background-color: #969696;
+    text-decoration: none;
+}
+
+.search-button {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .search {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+    }
+    .map-embed {
+        position: fixed;
+        width: 100%;
+    }
+}
