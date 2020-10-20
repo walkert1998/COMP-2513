@@ -9,6 +9,7 @@ var results;
 
 $(document).ready(function() {
 	$('#establishment-display').hide();
+	getAllData();
 });
 
 function getAllData() {
@@ -37,7 +38,6 @@ function getAllData() {
 function getCities(data) {
 	let dropdown = $('#city_selection');
 	dropdown.empty();
-	console.log("fetching data...");
 	var url = 'https://data.novascotia.ca/resource/if4h-78fy.json';
 	var cities = new Array;
 	$.each(data, function (key, entry) {
