@@ -88,7 +88,6 @@ function getData(data) {
 		$.each(results, function (index, value) {
 			resultPrefab = '<a href="javascript:displayEstablishment(results['+index+']);" id="result-'+ (index + 1) + '"><div class="row result"><div class="col-sm-4"><p>'+ results[index].licensee_name + '</p></div><div class="col-sm-4"><p>'+ results[index].license_type + '</p></div><div class="col-sm-4"><p>'+ results[index].city + '</p></div></div><br  /></a>'
 			result_section.append(resultPrefab);
-			// $("#result-"+(index + 1)).attr('onclick', 'displayEstablishment(retrievedData['+index+'])');
 		});
 	}
 }
@@ -99,6 +98,5 @@ function displayEstablishment (establishment) {
 	$('#establishment-address').html("Address: " + establishment.address);
 	$('#establishment-sales').html("Pre-arranged Funeral Plan Sales: " + establishment.pre_arranged_funeral_plan_sales);
 	$('#google-map').attr('src', "https://www.google.com/maps/embed/v1/place?key=AIzaSyCM1Aixhmhyha1Knp3yg5wQ9fhBbcDHhIE&q=" + establishment.address + "," + establishment.city);
-	// $('#google-map').attr('src', "https://www.google.com/maps/embed/v1/place?key=AIzaSyCM1Aixhmhyha1Knp3yg5wQ9fhBbcDHhIE&q=" + establishment.location_geocode.latitude + ',' + establishment.location_geocode.longitude);
 }
 
