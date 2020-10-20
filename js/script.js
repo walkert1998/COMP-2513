@@ -90,6 +90,7 @@ function getData(data) {
 	if (results.length < 1) {
 		console.log("No results");
 		result_section.append($('<h2></h2>').html('No Results Found...'));
+		result_section.append($('<p></p>').html('Please try other search parameters'));
 	} else {
 		result_section.append($('<h2></h2>').html(results.length + ' Results Found:'));
 		result_section.append($('<div class="row result"></div>').html('<div class="col-sm-4"><p>Name</p></div><div class="col-sm-4"><p>Service(s)</p></div><div class="col-sm-4"><p>Location</p></div>'));
