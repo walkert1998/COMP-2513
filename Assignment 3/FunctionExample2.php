@@ -1,4 +1,7 @@
 <?php declare(strict_types=1); // strict requirement
+date_default_timezone_set("America/Halifax");
+echo "Author: Thomas Walker" . "<br>";
+echo "Date: " . date("d-m-Y h:i:sa") . "<br>";
 function setHeight(int $minheight = 50) {
   echo "The height is : $minheight <br>";
 }
