@@ -2,6 +2,11 @@
     display: none;
 }
 
+.header-section {
+    background-color: #14bb22;
+    color: #ffffff;
+}
+
 .table tbody tr.highlight td {
     background-color: #406be2;
     color: #ffffff;

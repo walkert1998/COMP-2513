@@ -1,7 +1,3 @@
-// If this var is false then a contact is being created.
-// This is a terrible way to organize this sort of thing
-// but whatever.
-var editingContact = false;
 
 $(document).ready(function() {
 	$("#getContactsButton").click(getContacts);
@@ -15,12 +11,12 @@ $(document).ready(function() {
 	$("#deleteContactButton").click(deleteContact);
 });
 
-// $(document).ready(function() {
-// 	$("#createContactButton").click(createContact);
-// });
-
 $(document).ready(function() {
-	$("#addNewContactButton").click(clearContactInfo);
+	$("#addNewContactButton").click(function() {
+		clearContactInfo();
+		$("#submitEdit").off('click');
+		$("#submitEdit").click(createContact);
+	});
 });
 
 function clearContactInfo()
@@ -31,8 +27,6 @@ function clearContactInfo()
 	$("#edit_email").val("");
 	$("#edit_birthdate").val("");
 	$(".contact-info").css("display", "inline");
-	$("#submitEdit").off('click');
-	$("#submitEdit").click(createContact);
 }
 
 function selectContact(id, first_name, last_name, email, birthdate) {
@@ -42,7 +36,6 @@ function selectContact(id, first_name, last_name, email, birthdate) {
 	$("#edit_lname").val(last_name);
 	$("#edit_email").val(email);
 	$("#edit_birthdate").val(birthdate);
-	$("#submitEdit").off('click');
 	$("#submitEdit").click(function(){
 		var url = 'http://localhost/assignment4/service.php?action=updatecontact&author_id=' + $("#edit_id").val() + '&first_name=' + $("#edit_fname").val() + "&last_name=" + $("#edit_lname").val() + "&email=" + $("#edit_email").val() + "&birthdate=" + $("#edit_birthdate").val();
 		console.log(url);
@@ -137,7 +130,8 @@ function deleteContact() {
 		method: 'post',
 		dataType: "json",
 		success: function(){
-			alert("Contact deleted.")
+			alert("Contact deleted.");
+			clearContactInfo();
 		},
 		error: function() {
 			alert("Contact could not be deleted, an error occurred while processing JSON.");
@@ -153,7 +147,8 @@ function createContact() {
 		method: 'post',
 		dataType: "json",
 		success: function(){
-			alert("Contact created.")
+			alert("Contact created.");
+			clearContactInfo();
 		},
 		error: function() {
 			alert("Contact could not be deleted, an error occurred while processing JSON.");

@@ -2,12 +2,12 @@
 # TABLE STRUCTURE FOR: contacts
 #
 
--- CREATE DATABASE contacts;
--- USE contacts;
+CREATE DATABASE contacts;
+USE contacts;
 
--- CREATE USER 'contactsdb'@'localhost' IDENTIFIED BY 'contactsdb';
--- GRANT ALL PRIVILEGES ON * . * TO 'contactsdb'@'localhost';
--- FLUSH PRIVILEGES;
+CREATE USER 'contactsdb'@'localhost' IDENTIFIED BY 'contactsdb';
+GRANT ALL PRIVILEGES ON * . * TO 'contactsdb'@'localhost';
+FLUSH PRIVILEGES;
 
 DROP TABLE IF EXISTS `contacts`;
 
