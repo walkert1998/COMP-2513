@@ -1,0 +1,12 @@
+.contact-info {
+    display: none;
+}
+
+.table tbody tr.highlight td {
+    background-color: #406be2;
+    color: #ffffff;
+}
+
+.fixed-position {
+    position: fixed;
+}

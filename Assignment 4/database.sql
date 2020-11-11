@@ -2,12 +2,12 @@
 # TABLE STRUCTURE FOR: contacts
 #
 
-CREATE DATABASE contacts;
-USE contacts;
+-- CREATE DATABASE contacts;
+-- USE contacts;
 
-CREATE USER 'contactsdb'@'localhost' IDENTIFIED BY 'contactsdb';
-GRANT ALL PRIVILEGES ON * . * TO 'contactsdb'@'localhost';
-FLUSH PRIVILEGES;
+-- CREATE USER 'contactsdb'@'localhost' IDENTIFIED BY 'contactsdb';
+-- GRANT ALL PRIVILEGES ON * . * TO 'contactsdb'@'localhost';
+-- FLUSH PRIVILEGES;
 
 DROP TABLE IF EXISTS `contacts`;
 
@@ -20,7 +20,7 @@ CREATE TABLE `contacts` (
   `added` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (1, 'Angus', 'Harris', 'ubergstrom@example.com', '2005-12-21', '1992-06-11 06:53:12');
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (2, 'Eleazar', 'Mraz', 'kertzmann.pink@example.com', '2006-10-13', '2009-01-06 11:28:13');
@@ -49,7 +49,7 @@ INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (25, 'Van', 'Toy', 'jaskolski.rocio@example.com', '1993-11-14', '1991-08-21 01:21:41');
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (26, 'Breanne', 'Wiza', 'blick.lavonne@example.com', '1987-08-03', '1993-12-13 05:05:56');
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (27, 'Alfonso', 'Gusikowski', 'scarroll@example.com', '1990-12-31', '2015-01-12 06:31:58');
-INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (28, 'Susan', 'Terry', 'o\'hara.alphonso@example.net', '2017-04-22', '1987-02-19 01:18:36');
+INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (28, 'Susan', 'Terry', 'ohara.alphonso@example.net', '2017-04-22', '1987-02-19 01:18:36');
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (29, 'Eda', 'Walker', 'jrunolfsson@example.com', '1999-05-03', '2010-06-13 06:46:13');
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (30, 'Chandler', 'Keeling', 'cordia.bahringer@example.org', '1970-09-02', '1985-02-22 08:34:31');
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (31, 'Alene', 'Schmidt', 'vito.stehr@example.net', '1970-05-10', '2000-01-08 14:35:25');
@@ -71,7 +71,7 @@ INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (47, 'Shemar', 'Jacobs', 'lynch.rogelio@example.com', '1980-01-13', '1973-09-13 00:50:45');
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (48, 'Garett', 'Monahan', 'wmorissette@example.org', '2009-11-04', '1988-03-03 04:27:26');
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (49, 'Zora', 'Ondricka', 'bergnaum.hillard@example.com', '2015-02-04', '1981-08-09 19:52:39');
-INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (50, 'Isaias', 'Kulas', 'ud\'amore@example.net', '1976-12-02', '2008-11-05 08:33:38');
+INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (50, 'Isaias', 'Kulas', 'udamore@example.net', '1976-12-02', '2008-11-05 08:33:38');
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (51, 'Hortense', 'VonRueden', 'shanahan.omer@example.org', '2003-12-17', '2000-07-23 18:19:41');
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (52, 'Celine', 'Yost', 'gayle69@example.org', '2010-10-21', '1995-04-27 08:41:51');
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `email`, `birthdate`, `added`) VALUES (53, 'Brandon', 'Johnston', 'paucek.ivy@example.org', '2004-10-14', '2007-11-11 09:34:38');
