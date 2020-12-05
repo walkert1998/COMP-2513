@@ -82,11 +82,6 @@
 <style scoped>
     .table { 
         padding: 20px; width: 80%; margin: auto; 
-    }
-    td {
-        color: var(--color-text);
-    }
-    tr {
         color: var(--color-text);
     }
     tr:nth-child(odd) {
