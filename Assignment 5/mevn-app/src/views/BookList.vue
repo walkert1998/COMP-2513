@@ -83,6 +83,18 @@
     .table { 
         padding: 20px; width: 80%; margin: auto; 
     }
+    td {
+        color: var(--color-text);
+    }
+    tr {
+        color: var(--color-text);
+    }
+    tr:nth-child(odd) {
+        background: var(--color-article-background);
+    }
+    tr:nth-child(even) {
+        background: var(--color-article-background);
+    }
     #bookform {
         padding: 20px; width: 40%; margin: auto; 
     }
