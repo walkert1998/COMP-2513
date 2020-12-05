@@ -13,19 +13,13 @@
 
 <script>
 export default {
-  data() {
-    return {
-      theme: 'light' // default theme to use when the site is first loaded
-    }
-  },
-  watch: {
-    theme(theme) {
-      document.documentElement.dataset.theme = theme // this is where the magic happens
-    } // the `dataset.theme` is the data-theme attribute I set in my SCSS file (highlighted above)
-  },
   methods: {
     toggleTheme() {
-      document.body.classList.toggle('dark');
+      if (document.body.classList.contains('dark')) {
+        document.body.classList.remove('dark');
+      } else {
+        document.body.classList.add('dark');
+      }
     }
   }
 }
@@ -39,6 +33,13 @@ export default {
   text-align: center;
   background-color: var(--color-page-background);
   color: var(--color-text);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  height: 100%;
+  background-color: var(--color-page-background);
 }
 
 #nav {

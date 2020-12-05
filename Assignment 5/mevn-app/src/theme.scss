@@ -13,6 +13,7 @@ $color-gray-dark: rgba($color-black, .15);
 
 .dark {
   --color-page-background: #{$color-black};
+  background-color: #{$color-black};
   --color-text: #{$color-white};
   --color-border: #{$color-white};
   --color-article-background: #{$color-gray-light};
