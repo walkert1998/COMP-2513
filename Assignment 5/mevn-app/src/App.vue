@@ -1,6 +1,8 @@
 <template>
   <div>
-    <button @click="toggleTheme">Toggle Theme</button>
+    <div class="row">
+      <button @click="toggleTheme">Toggle Theme</button>
+    </div>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/bookList">Book list</router-link> |
@@ -54,5 +56,11 @@ body {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.row {
+  position: absolute;
+  right: 10%;
+  top: 1%;
 }
 </style>
