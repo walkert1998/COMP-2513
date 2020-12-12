@@ -30,12 +30,12 @@ export default class Booklist extends Component {
   }
 
   AddNewBook= () => {  
-    let newBook = { _id: null, isbn: '', title: '', author: '', description: '', published_year: '' }
+    let newBook = { _id: null, isbn: '', title: '', author: '', description: '', publisher: '', published_year: '' }
     this.setState({ book: newBook, showForm: true, showAddButton: false }); 
   } 
 
   CancelBook = () => {
-    let newBook = { _id: '', isbn: '', title: '', author: '', description: '', published_year: '' }
+    let newBook = { _id: '', isbn: '', title: '', author: '', description: '', publisher: '', published_year: '' }
     this.setState({ book: newBook, showForm: false, showAddButton: true })
   }
 
@@ -81,6 +81,9 @@ export default class Booklist extends Component {
       case 'author':
         book.author = val;
         break;
+      case 'publisher':
+        book.publisher = val;
+        break;
       case 'published_year':
         book.published_year = val;
         break;
@@ -109,6 +112,11 @@ export default class Booklist extends Component {
                 onChange={e => { this.UpdateValue(e.target.value,'author')}}/>
           </div>
           <div>
+              <label><strong>Publisher:</strong></label>
+              <input type="text" className="form-control" id="publisher" name="publisher" defaultValue={this.state.book.publisher}
+                onChange={e => { this.UpdateValue(e.target.value,'publisher')}}/>
+          </div>
+          <div>
               <label><strong>Year:</strong></label>
               <input type="text" className="form-control" id="published_year" name="published_year" defaultValue={this.state.book.published_year}
                 onChange={e => { this.UpdateValue(e.target.value,'published_year')}}/>
@@ -135,6 +143,7 @@ export default class Booklist extends Component {
               <th>ISBN</th>
               <th>Title</th>
               <th>Author</th>
+              <th>Publisher</th>
               <th>Year</th>
               <th>Actions</th>
             </tr>

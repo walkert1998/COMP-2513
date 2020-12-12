@@ -24,6 +24,7 @@ class Table extends Component {
           <td>{this.props.obj.isbn}</td>
           <td>{this.props.obj.title}</td>
           <td>{this.props.obj.author}</td>
+          <td>{this.props.obj.publisher}</td>
           <td>{this.props.obj.published_year}</td>
           <td>
             <button type="button" onClick={this.EditBook} className="btn btn-success">Edit</button>
