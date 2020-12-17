@@ -6,6 +6,8 @@ import store from './store'
 
 import './custom.scss'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 window.$ = require('jquery')
 window.JQuery = require('jquery')
 

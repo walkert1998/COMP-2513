@@ -10,7 +10,9 @@
       <router-link to="/map">Map</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <div class="container">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -53,11 +55,5 @@ body {
 
 #nav a.router-link-exact-active {
   color: #42b983;
-}
-
-.row {
-  position: absolute;
-  right: 10%;
-  top: 1%;
 }
 </style>
