@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var HousingUnitSchema = new mongoose.Schema({
   object_id: Number,
   property: String,
-  PID: Number,
+  pid: Number,
   name: String,
   civic_address: String,
   postal_code: String,
