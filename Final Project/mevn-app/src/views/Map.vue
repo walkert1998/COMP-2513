@@ -22,7 +22,17 @@
         </div>
       </div>
       <div class="col-s-12 col-md-8">
+          <button
+      type="button"
+      class="btn"
+      @click="showModal"
+    >
+      Open Modal!
+    </button>
 
+    <modal
+      v-show="isModalVisible"
+      @close="closeModal"/>
       </div>
     </div>
     
@@ -35,14 +45,18 @@
 
 <script>
 import axios from 'axios'
-
+import modal from './Modal.vue';
 export default {
     name: 'Map',
+    components: {
+        modal,
+    },
     data () {
         return {
             housingunits: [],
             model: {},
-            pleaseWait: false
+            pleaseWait: false,
+            isModalVisible: false
         }
     },
     created () {
@@ -104,6 +118,12 @@ export default {
                 })                
             }
        },
+       showModal() {
+            this.isModalVisible = true;
+        },
+        closeModal() {
+            this.isModalVisible = false;
+        }
     }
 }
 </script>
