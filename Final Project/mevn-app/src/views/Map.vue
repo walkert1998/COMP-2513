@@ -1,6 +1,34 @@
 <template>
   <div class="map">
     <div class="row">
+        <div class="col-s-12 col-md-6">
+            <modal
+            v-show="isModalVisible"
+            @close="closeModal">
+                <template v-slot:body>
+                    <p>{{ display_unit.name }}</p>
+                    <p>Address: {{ display_unit.civic_address }}</p>
+                    <p>Postal Code: {{ display_unit.postal_code }}</p>
+                    <p># of Floors: {{ display_unit.num_floors }}</p>
+                    <p>Community: {{ display_unit.community }}</p>
+                    <p>{{ display_unit.pid }}</p>
+                    <p>{{ display_unit.property }}</p>
+                    <p>Residential Units: {{ display_unit.residential_units }}</p>
+                    <p>Housing Authority: {{ display_unit.housing_authority }}</p>
+                    <p>County: {{ display_unit.county }}</p>
+                    <p>Elevator (or Chair Lift): {{ display_unit.elevator }}</p>
+                    <p>Oil Heat: {{ display_unit.oil_heat }}</p>
+                    <p>Electric Heat: {{ display_unit.electric_heat }}</p>
+                    <p>Public Water: {{ display_unit.public_water }}</p>
+                    <p>Well Water: {{ display_unit.well_water }}</p>
+                    <p>Public Sewer: {{ display_unit.public_sewer }}</p>
+                    <p>Onsite Septic: {{ display_unit.onsite_septic }}</p>
+                    <p>Municipality: {{ display_unit.municipality }}</p>
+                </template>
+            </modal>
+        </div>
+    </div>
+    <div class="row">
       <div class="col-s-12 col-md-4">
         <div class="row">
           <div class="col-s-12 col-md-12">
@@ -13,7 +41,7 @@
           </div>
           <div class="col-s-12 col-md-12">
             <div v-for="unit in housingunits" :key="unit._id">
-              <h3>{{unit.name}}</h3>
+              <a @click="displayHousingUnit(unit)">{{unit.name}}</a>
               <p>Number of residential units: {{unit.residential_units}}</p>
               <p>Address: {{unit.civic_address}}</p>
               <hr  />
@@ -22,17 +50,6 @@
         </div>
       </div>
       <div class="col-s-12 col-md-8">
-          <button
-      type="button"
-      class="btn"
-      @click="showModal"
-    >
-      Open Modal!
-    </button>
-
-    <modal
-      v-show="isModalVisible"
-      @close="closeModal"/>
       </div>
     </div>
     
@@ -55,6 +72,7 @@ export default {
         return {
             housingunits: [],
             model: {},
+            display_unit: {},
             pleaseWait: false,
             isModalVisible: false
         }
@@ -123,6 +141,10 @@ export default {
         },
         closeModal() {
             this.isModalVisible = false;
+        },
+        displayHousingUnit(unit) {
+            this.display_unit = unit;
+            this.showModal();
         }
     }
 }

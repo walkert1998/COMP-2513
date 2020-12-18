@@ -11,6 +11,7 @@ var HousingUnitSchema = new mongoose.Schema({
   residential_units: Number,
   housing_authority: String,
   county: String,
+  community: String,
   elevator: String,
   oil_heat: String,
   electric_heat: String,

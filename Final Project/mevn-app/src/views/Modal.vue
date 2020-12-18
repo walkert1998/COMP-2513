@@ -21,7 +21,7 @@
           id="modalTitle"
         >
           <slot name="header">
-            This is the default tile!
+            
 
             <button
               type="button"
@@ -38,12 +38,12 @@
           id="modalDescription"
         >
           <slot name="body">
-            I'm the default body!
+            
           </slot>
         </section>
         <footer class="modal-footer">
           <slot name="footer">
-            I'm the default footer!
+            
 
             <button
               type="button"
@@ -66,17 +66,20 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgb(0, 0, 0, 0.3);
+    opacity: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .modal {
+  .modal-backdrop .modal {
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
-    overflow-x: auto;
-    display: flex;
+    overflow-y: auto;
+    display: block;
+    justify-content: center;
+    width: 50%;
     flex-direction: column;
   }
 
