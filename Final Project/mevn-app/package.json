@@ -19,6 +19,7 @@
     "sass-loader": "^10.1.0",
     "vue": "^3.0.3",
     "vue-router": "^4.0.0-0",
+    "vue-scroll-snap": "^0.1.10",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {

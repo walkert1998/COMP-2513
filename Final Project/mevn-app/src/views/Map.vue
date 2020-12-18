@@ -2,11 +2,58 @@
   <div class="map">
     <div class="row">
         <div class="col-s-12 col-md-6">
-            <modal
+            <div v-if="showModal">
+                <transition name="modal">
+                <div class="modal-mask">
+                    <div class="modal-wrapper">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">{{ display_unit.name }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" @click="showModal = false">&times;</span>
+                            </button>
+                        </div>
+                        <vue-scroll-snap>
+                            <div class="modal-body">
+                                <!-- <p>{{ display_unit._id }}</p> -->
+                                <h4>Info</h4>
+                                <p>Address: {{ display_unit.civic_address }}</p>
+                                <p>Postal Code: {{ display_unit.postal_code }}</p>
+                                <p># of Floors: {{ display_unit.num_floors }}</p>
+                                <p>Community: {{ display_unit.community }}</p>
+                                <!-- <p>{{ display_unit.pid }}</p> -->
+                                <!-- <p>{{ display_unit.property }}</p> -->
+                                <p>Residential Units: {{ display_unit.residential_units }}</p>
+                                <p>Housing Authority: {{ display_unit.housing_authority }}</p>
+                                <p>County: {{ display_unit.county }}</p>
+                                <h4>Features</h4>
+                                <p>Elevator (or Chair Lift): {{ display_unit.elevator }}</p>
+                                <p>Oil Heat: {{ display_unit.oil_heat }}</p>
+                                <p>Electric Heat: {{ display_unit.electric_heat }}</p>
+                                <p>Public Water: {{ display_unit.public_water }}</p>
+                                <p>Well Water: {{ display_unit.well_water }}</p>
+                                <p>Public Sewer: {{ display_unit.public_sewer }}</p>
+                                <p>Onsite Septic: {{ display_unit.onsite_septic }}</p>
+                                <p>Municipality: {{ display_unit.municipality }}</p>
+                            </div>
+                        </vue-scroll-snap>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" @click="showModal = false">Close</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </transition>
+            </div>
+            <!-- <modal
             v-show="isModalVisible"
             @close="closeModal">
                 <template v-slot:body>
                     <p>{{ display_unit.name }}</p>
+                    <p>{{ display_unit._id }}</p>
                     <p>Address: {{ display_unit.civic_address }}</p>
                     <p>Postal Code: {{ display_unit.postal_code }}</p>
                     <p># of Floors: {{ display_unit.num_floors }}</p>
@@ -25,7 +72,7 @@
                     <p>Onsite Septic: {{ display_unit.onsite_septic }}</p>
                     <p>Municipality: {{ display_unit.municipality }}</p>
                 </template>
-            </modal>
+            </modal> -->
         </div>
     </div>
     <div class="row">
@@ -50,6 +97,7 @@
         </div>
       </div>
       <div class="col-s-12 col-md-8">
+          
       </div>
     </div>
     
@@ -60,21 +108,54 @@
   </div>
 </template>
 
+<style scoped>
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: table;
+  transition: opacity .3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+}
+
+.item {
+    /* Set the minimum height of the items to be the same as the height of the scroll-snap-container.*/
+    min-height: 50vh;
+  }
+
+  .scroll-snap-container {
+    height: 50vh;
+    width: 100%;
+  }
+</style>
+
 <script>
 import axios from 'axios'
-import modal from './Modal.vue';
+import VueScrollSnap from "vue-scroll-snap";
 export default {
     name: 'Map',
-    components: {
-        modal,
-    },
+    components: {VueScrollSnap},
     data () {
         return {
             housingunits: [],
             model: {},
             display_unit: {},
             pleaseWait: false,
-            isModalVisible: false
+            showModal: false
         }
     },
     created () {
@@ -136,15 +217,9 @@ export default {
                 })                
             }
        },
-       showModal() {
-            this.isModalVisible = true;
-        },
-        closeModal() {
-            this.isModalVisible = false;
-        },
         displayHousingUnit(unit) {
             this.display_unit = unit;
-            this.showModal();
+            this.showModal = true;
         }
     }
 }
