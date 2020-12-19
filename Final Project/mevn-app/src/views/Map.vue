@@ -35,7 +35,6 @@
                                 <p>Onsite Septic: {{ display_unit.onsite_septic }}</p>
                             </div>
                         </vue-scroll-snap>
-                        
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" @click="showModal = false">Close</button>
                         </div>
@@ -88,7 +87,6 @@
 
 <style scoped>
 #map-area {
-    /* background-color: #ffffff; */
     height: 800px;
 }
 
@@ -201,19 +199,13 @@ export default {
                         });
                         marker.setMap(this.map)
                         this.markers.push(marker)
-                        console.log("drew marker")
                     });
                 } else {
                     this.locations = []
-                    this.markers[0].setMap(null)
                     for(var i=0; i<this.markers.length; i++){
                         console.log(this.markers[i].getVisible())
                         this.markers[i].setVisible(false);
                     }
-                    // this.markers.forEach(mark => {
-                    //     console.log(mark.position.lat)
-                    //     mark.setMap(null)
-                    // })
                 }
                 
             } catch (error) {
@@ -234,64 +226,9 @@ export default {
                 this.errors.push(e)
             })
         },
-        getUrl() {
-            return 'http://localhost:3000'
-        },
-        getData () {
-            axios.get(this.getUrl() + '/housingunit')
-            .then(response => {
-                this.housingunits = response.data
-            })
-            .catch(e => {
-                this.errors.push(e)
-            })
-        },
-        populateBookToEdit (book) {
-            this.model = book;
-        },
-        cancelBook () {
-            this.model = {}
-        },
         cancelUnit () {
             this.model = {}
         },
-        deleteBook (id) {
-            if (confirm('Are you sure you want to delete this post?')) {
-                axios.delete(this.getUrl() + '/housingunit/' + id)
-                .then((result) => {
-                    console.log(result)
-                    this.getData()
-                })
-                .catch(e => {
-                    console.log(e)
-                })
-            }
-        },
-        saveBook() {
-            console.log(this.model)
-            console.log('this.model._id: ' + this.model._id)
-            if  (this.model._id === undefined) {
-                axios.post(this.getUrl() + '/book', this.model)
-                .then(response => {
-                    console.log(response)
-                    this.getData()
-                    this.cancelBook()
-                })
-                .catch(e => {
-                    console.log(e)
-                })
-            } else {
-                axios.put(this.getUrl() + '/book/' + this.model._id, this.model)
-                .then(response => {
-                    console.log(response)
-                    this.getData()
-                    this.cancelBook()
-                })
-                .catch(e => {
-                    console.log(e)
-                })                
-            }
-       },
        saveUnit(unit) {
             this.model = unit;
             console.log(this.model)
@@ -344,7 +281,6 @@ export default {
             if (this.markers.length > 0) {
                 this.initMap(false)
             }
-            this.locations = []
             this.results.forEach(point => {
                 var geolocation = {lat:Number(point.y_coordina), lng:Number(point.x_coordina), unit:point}
                 this.locations.push(geolocation)
