@@ -16,19 +16,16 @@
                         </div>
                         <vue-scroll-snap>
                             <div class="modal-body">
-                                <p>{{ display_unit._id }}</p>
                                 <h4>Info</h4>
                                 <p>Address: {{ display_unit.address }}</p>
                                 <p>Postal Code: {{ display_unit.postal_code }}</p>
-                                <p>Community: {{ display_unit.city }}</p>
-                                <p>Municipality: {{ display_unit.municipality }}</p>
-                                <!-- <p>{{ display_unit.pid }}</p> -->
-                                <!-- <p>{{ display_unit.property }}</p> -->
-                                <p>Housing Authority: {{ display_unit.housing_authority }}</p>
+                                <p>City/Town: {{ display_unit.city }}</p>
                                 <p>County: {{ display_unit.county }}</p>
+                                <p>Municipality: {{ display_unit.municipality }}</p>
+                                <p>Housing Authority: {{ display_unit.housing_authority }}</p>
                                 <h4>Features</h4>
                                 <p>Residential Units: {{ display_unit.residential_units }}</p>
-                                <p># of Floors: {{ display_unit.number_of_floors }}</p>
+                                <p>Number of Floors: {{ display_unit.number_of_floors }}</p>
                                 <p>Elevator (or Chair Lift): {{ display_unit.elevator }}</p>
                                 <p>Oil Heat: {{ display_unit.oil_heat }}</p>
                                 <p>Electric Heat: {{ display_unit.electric_heat }}</p>
@@ -48,31 +45,6 @@
                 </div>
                 </transition>
             </div>
-            <!-- <modal
-            v-show="isModalVisible"
-            @close="closeModal">
-                <template v-slot:body>
-                    <p>{{ display_unit.name }}</p>
-                    <p>{{ display_unit._id }}</p>
-                    <p>Address: {{ display_unit.civic_address }}</p>
-                    <p>Postal Code: {{ display_unit.postal_code }}</p>
-                    <p># of Floors: {{ display_unit.num_floors }}</p>
-                    <p>Community: {{ display_unit.community }}</p>
-                    <p>{{ display_unit.pid }}</p>
-                    <p>{{ display_unit.property }}</p>
-                    <p>Residential Units: {{ display_unit.residential_units }}</p>
-                    <p>Housing Authority: {{ display_unit.housing_authority }}</p>
-                    <p>County: {{ display_unit.county }}</p>
-                    <p>Elevator (or Chair Lift): {{ display_unit.elevator }}</p>
-                    <p>Oil Heat: {{ display_unit.oil_heat }}</p>
-                    <p>Electric Heat: {{ display_unit.electric_heat }}</p>
-                    <p>Public Water: {{ display_unit.public_water }}</p>
-                    <p>Well Water: {{ display_unit.well_water }}</p>
-                    <p>Public Sewer: {{ display_unit.public_sewer }}</p>
-                    <p>Onsite Septic: {{ display_unit.onsite_septic }}</p>
-                    <p>Municipality: {{ display_unit.municipality }}</p>
-                </template>
-            </modal> -->
         </div>
     </div>
     <div class="row">
@@ -95,8 +67,8 @@
           </div>
         <vue-scroll-snap class="results">
           <div class="col-s-12 col-md-12">
-            <div v-for="result in results" :key="result._id">
-              <h4><a @click="displayHousingUnit(result)">{{result.name}}</a></h4>
+            <div v-for="result in results" :key="result._id" @click="displayHousingUnit(result)" class="result">
+              <h4>{{result.name}}</h4>
               <p>Number of residential units: {{result.residential_units}}</p>
               <p>Address: {{result.address}}</p>
               <hr  />
@@ -138,6 +110,10 @@
 
 hr {
     background-color: var(--color-text);
+}
+
+.result:hover {
+    background-color: #a5a5a5;
 }
 
 .modal-wrapper {
@@ -182,7 +158,9 @@ export default {
     async mounted() {
         this.google = await gmapsInit();
         this.geocoder = new this.google.maps.Geocoder();
-        this.map = new this.google.maps.Map(document.getElementById('map-area'));
+        this.map = new this.google.maps.Map(document.getElementById('map-area'),{
+            streetViewControl: false
+        });
         this.initMap(true)
     },
     data () {
