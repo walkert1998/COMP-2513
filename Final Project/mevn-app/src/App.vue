@@ -2,18 +2,19 @@
   <div>
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/bookList">Book list</router-link> |
-      <router-link to="/weather">Weather</router-link> |
-      <router-link to="/map">Map</router-link> |
-      <router-link to="/about">About</router-link> |
-      <a @click="toggleTheme">Toggle Theme</a>
+      <router-link to="/map">Map</router-link>
+      <!-- <router-link @click="toggleTheme">Toggle Theme</router-link> -->
     </div>
     <div class="container-fluid">
       <router-view/>
       <div class="row footer">
-        <div class="col-s-12">
-          <p>&copy; Thomas Walker 2020</p>
-        </div>
+          <div class="col-s-12">
+            <button @click="toggleTheme" id="theme-toggle">Toggle Theme</button>
+          </div>
+          <hr  />
+          <div class="col-s-12">
+            <p>&copy; Thomas Walker 2020</p>
+          </div>
       </div>
     </div>
   </div>
@@ -53,7 +54,7 @@ body {
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: var(--color-text);
 }
 
 #nav a.router-link-exact-active {
@@ -68,5 +69,12 @@ body {
   height: 30px;
   justify-content: center;
   width: 100%;
+}
+
+#theme-toggle {
+  left: 0;
+}
+#theme-toggle:hover {
+  text-decoration: underline;
 }
 </style>

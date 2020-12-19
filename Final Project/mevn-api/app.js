@@ -5,7 +5,6 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var cors = require('cors')
 
-var book = require('./routes/book');
 var housingunit = require('./routes/housingunit');
 var app = express();
 app.use(cors())
@@ -20,8 +19,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use('/books', express.static(path.join(__dirname, 'dist')));
-app.use('/book', book);
 app.use('/housingunits', express.static(path.join(__dirname, 'dist')));
 app.use('/housingunit', housingunit);
 
