@@ -87,7 +87,7 @@
 
 <style scoped>
 #map-area {
-    height: 800px;
+    height: 750px;
 }
 
 .modal-mask {
@@ -141,7 +141,7 @@ hr {
   }
 
   .results {
-    height: 75vh;
+    height: 69vh;
   }
 </style>
 

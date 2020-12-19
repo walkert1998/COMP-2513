@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Affordable Housing NS</h1>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/map">Map</router-link>
